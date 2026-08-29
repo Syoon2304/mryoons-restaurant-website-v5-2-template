@@ -27,18 +27,34 @@ jobs:
           ref: main
           fetch-depth: 0
 
+      - name: Recognize the untouched course placeholder
+        id: package-state
+        shell: bash
+        run: |
+          digest="$(sha256sum website.zip | awk '{print $1}')"
+          if [ "$digest" = "bb8ef7aaeac960b6a2238cab39a6c92ac262b7b49e6d012b6d768f8ebaab15e5" ]; then
+            echo "placeholder=true" >> "$GITHUB_OUTPUT"
+            echo "The untouched course placeholder is present. Upload the approved website.zip when the restaurant is ready." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "placeholder=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Set up Python
+        if: steps.package-state.outputs.placeholder != 'true'
         uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: '3.13'
 
       - name: Run infrastructure unit tests
+        if: steps.package-state.outputs.placeholder != 'true'
         run: python -m unittest discover -s tests -v
 
       - name: Test contact-function behavior
+        if: steps.package-state.outputs.placeholder != 'true'
         run: node --test tests/contact-function.test.mjs
 
       - name: Safely import website.zip
+        if: steps.package-state.outputs.placeholder != 'true'
         shell: bash
         run: |
           set +e
@@ -55,6 +71,7 @@ jobs:
           exit "$status"
 
       - name: Commit the validated website files
+        if: steps.package-state.outputs.placeholder != 'true'
         shell: bash
         run: |
           if git diff --quiet -- public; then

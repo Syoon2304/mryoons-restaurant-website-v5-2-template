@@ -1,3 +1,4 @@
+import hashlib
 import json
 from pathlib import Path
 import sys
@@ -13,6 +14,14 @@ from validate_site import validate_json_schema  # noqa: E402
 
 
 class WorkflowContractTests(unittest.TestCase):
+    def test_phone_workflow_skips_only_the_exact_reviewed_placeholder(self) -> None:
+        placeholder = ROOT / "website.zip"
+        digest = hashlib.sha256(placeholder.read_bytes()).hexdigest()
+        workflow = (ROOT / ".github" / "workflows" / "publish-phone-upload.yml").read_text(encoding="utf-8")
+        self.assertEqual(digest, "bb8ef7aaeac960b6a2238cab39a6c92ac262b7b49e6d012b6d768f8ebaab15e5")
+        self.assertIn(digest, workflow)
+        self.assertEqual(workflow.count("steps.package-state.outputs.placeholder != 'true'"), 5)
+
     def test_rollback_detects_the_staged_restore_against_head(self) -> None:
         workflow = (ROOT / ".github" / "workflows" / "rollback-website.yml").read_text(encoding="utf-8")
         self.assertIn("git diff --quiet HEAD -- public", workflow)

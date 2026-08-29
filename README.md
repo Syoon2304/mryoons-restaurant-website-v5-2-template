@@ -60,7 +60,7 @@ The uploaded package must:
 - remain inside all compressed, expanded, file-count, file-type, and individual-file limits;
 - pass the full production validator and an exact extraction check.
 
-The included root `website.zip` is deliberately invalid. A student replaces it with the approved package produced by the course workflow. Uploading an invalid package leaves the existing `public/` unchanged.
+The included root `website.zip` is a deliberately invalid, exact course placeholder. The phone workflow recognizes only that reviewed placeholder as a clean waiting state. A student replaces it with the approved package produced by the course workflow; every changed package receives the complete import and production checks. Uploading an invalid package leaves the existing `public/` unchanged.
 
 ### Existing-site URL safety
 
