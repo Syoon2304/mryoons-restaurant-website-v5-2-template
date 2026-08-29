@@ -1,0 +1,17 @@
+.DS_Store
+Thumbs.db
+__pycache__/
+*.py[cod]
+.website-import-report.json
+.website-import-report.md
+.website-validation.json
+.website-validation.md
+.rollback-validation.json
+.rollback-validation.md
+.live-health.json
+.live-health.md
+.website-import-staging/
+.public-package-staging/
+.env
+.env.*
+!.env.example

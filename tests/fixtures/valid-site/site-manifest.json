@@ -1,0 +1,84 @@
+{
+  "schema_version": "2.1",
+  "site_name": "Harbor Lantern Test Kitchen",
+  "business_type": "restaurant",
+  "public_domain": "https://restaurant-v5-2-test.pages.dev",
+  "package_version": "2026.08.29-test.1",
+  "build_date": "2026-08-29T12:00:00Z",
+  "stage": "production",
+  "workflow_version": "5.2",
+  "system_version": "restaurant-system-pack-5.2",
+  "business_assets_version": "restaurant-business-assets-5.2",
+  "repository_package_spec": "5.2",
+  "design_lock_reference": "fixture-design-lock-2026-08-29",
+  "final_approval_reference": "fixture-final-approval-2026-08-29",
+  "primary_action": {
+    "label": "Test contact flow",
+    "url": "/contact.html"
+  },
+  "pages": [
+    {
+      "file_path": "index.html",
+      "url_path": "/",
+      "canonical_url_path": "/",
+      "title": "Harbor Lantern Test Kitchen | Restaurant Website QA",
+      "purpose": "Acceptance-test restaurant homepage.",
+      "indexable": true
+    },
+    {
+      "file_path": "menu.html",
+      "url_path": "/menu.html",
+      "canonical_url_path": "/menu.html",
+      "title": "Acceptance Test Menu | Harbor Lantern Test Kitchen",
+      "purpose": "Readable acceptance-test menu.",
+      "indexable": true
+    },
+    {
+      "file_path": "contact.html",
+      "url_path": "/contact.html",
+      "canonical_url_path": "/contact.html",
+      "title": "Contact Fixture | Harbor Lantern Test Kitchen",
+      "purpose": "Accessible contact form and direct contact routes.",
+      "indexable": true
+    },
+    {
+      "file_path": "privacy.html",
+      "url_path": "/privacy.html",
+      "canonical_url_path": "/privacy.html",
+      "title": "Privacy Fixture | Harbor Lantern Test Kitchen",
+      "purpose": "Acceptance-test privacy notice.",
+      "indexable": true
+    },
+    {
+      "file_path": "404.html",
+      "url_path": "/404.html",
+      "canonical_url_path": "/404.html",
+      "title": "Page Not Found | Harbor Lantern Test Kitchen",
+      "purpose": "Helpful page-not-found response.",
+      "indexable": false
+    }
+  ],
+  "legacy_routes": [],
+  "icons": [
+    {"rel": "icon", "file_path": "assets/icons/favicon.ico", "mime_type": "image/x-icon", "sizes": ["16x16", "32x32", "48x48"]},
+    {"rel": "icon", "file_path": "assets/icons/favicon.svg", "mime_type": "image/svg+xml", "sizes": ["any"]},
+    {"rel": "apple-touch-icon", "file_path": "assets/icons/apple-touch-icon.png", "mime_type": "image/png", "sizes": ["180x180"]},
+    {"rel": "manifest", "file_path": "site.webmanifest", "mime_type": "application/manifest+json", "sizes": []},
+    {"rel": "app-icon", "file_path": "assets/icons/icon-192.png", "mime_type": "image/png", "sizes": ["192x192"]},
+    {"rel": "app-icon", "file_path": "assets/icons/icon-512.png", "mime_type": "image/png", "sizes": ["512x512"]}
+  ],
+  "external_media": [],
+  "public_documents": [],
+  "forms": [
+    {
+      "id": "general-contact",
+      "enabled": true,
+      "action": "/api/contact",
+      "page": "contact.html",
+      "purpose": "general inquiry",
+      "fallback": "/contact.html",
+      "privacy_page": "privacy.html",
+      "turnstile_action": "contact_submit"
+    }
+  ]
+}

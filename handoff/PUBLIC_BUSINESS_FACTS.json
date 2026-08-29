@@ -1,0 +1,21 @@
+{
+  "status": "not-populated",
+  "approval_date": null,
+  "public_name": null,
+  "legal_name_if_published": null,
+  "telephone": null,
+  "public_email": null,
+  "locations": [],
+  "service_modes": [],
+  "cuisines": [],
+  "price_range": null,
+  "hours": [],
+  "primary_action": null,
+  "order_links": [],
+  "reservation_links": [],
+  "approved_claims": [],
+  "approved_reviews": [],
+  "approved_awards": [],
+  "approved_social_links": [],
+  "notes": "Populate only with owner-approved facts intended for the public website."
+}

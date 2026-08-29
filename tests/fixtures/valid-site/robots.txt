@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://restaurant-v5-2-test.pages.dev/sitemap.xml

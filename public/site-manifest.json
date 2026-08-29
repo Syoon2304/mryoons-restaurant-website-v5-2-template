@@ -1,0 +1,81 @@
+{
+  "schema_version": "2.1",
+  "site_name": "Restaurant Website Starter",
+  "business_type": "restaurant",
+  "public_domain": "https://restaurant-starter-shell.pages.dev",
+  "package_version": "starter-5.2.0",
+  "build_date": "2026-08-29T12:00:00Z",
+  "stage": "starter",
+  "workflow_version": "5.2",
+  "system_version": "restaurant-system-pack-5.2",
+  "business_assets_version": "restaurant-business-assets-5.2",
+  "repository_package_spec": "5.2",
+  "design_lock_reference": "starter-shell",
+  "final_approval_reference": "starter-shell",
+  "primary_action": {
+    "label": "View setup status",
+    "url": "/setup-status.html"
+  },
+  "pages": [
+    {
+      "file_path": "index.html",
+      "url_path": "/",
+      "canonical_url_path": "/",
+      "title": "Restaurant Website Publishing System Ready",
+      "purpose": "Safe starter homepage shown before the approved restaurant site is installed.",
+      "indexable": true
+    },
+    {
+      "file_path": "setup-status.html",
+      "url_path": "/setup-status.html",
+      "canonical_url_path": "/setup-status.html",
+      "title": "Restaurant Website Infrastructure Status",
+      "purpose": "Explains that the protected publishing system is ready for an approved website.",
+      "indexable": false
+    },
+    {
+      "file_path": "404.html",
+      "url_path": "/404.html",
+      "canonical_url_path": "/404.html",
+      "title": "Page Not Found | Restaurant Website Starter",
+      "purpose": "Helpful page-not-found response for visitors.",
+      "indexable": false
+    },
+    {
+      "file_path": "menu.html",
+      "url_path": "/menu.html",
+      "canonical_url_path": "/menu.html",
+      "title": "Menu Not Loaded | Restaurant Website Starter",
+      "purpose": "Safe menu placeholder that publishes no unconfirmed menu facts.",
+      "indexable": false
+    },
+    {
+      "file_path": "contact.html",
+      "url_path": "/contact.html",
+      "canonical_url_path": "/contact.html",
+      "title": "Contact Not Loaded | Restaurant Website Starter",
+      "purpose": "Safe contact placeholder that publishes no unconfirmed contact facts.",
+      "indexable": false
+    },
+    {
+      "file_path": "privacy.html",
+      "url_path": "/privacy.html",
+      "canonical_url_path": "/privacy.html",
+      "title": "Privacy Page Not Loaded | Restaurant Website Starter",
+      "purpose": "Safe policy placeholder until the restaurant approves its accurate notice.",
+      "indexable": false
+    }
+  ],
+  "legacy_routes": [],
+  "icons": [
+    {"rel": "icon", "file_path": "assets/icons/favicon.ico", "mime_type": "image/x-icon", "sizes": ["16x16", "32x32", "48x48"]},
+    {"rel": "icon", "file_path": "assets/icons/favicon.svg", "mime_type": "image/svg+xml", "sizes": ["any"]},
+    {"rel": "apple-touch-icon", "file_path": "assets/icons/apple-touch-icon.png", "mime_type": "image/png", "sizes": ["180x180"]},
+    {"rel": "manifest", "file_path": "site.webmanifest", "mime_type": "application/manifest+json", "sizes": []},
+    {"rel": "app-icon", "file_path": "assets/icons/icon-192.png", "mime_type": "image/png", "sizes": ["192x192"]},
+    {"rel": "app-icon", "file_path": "assets/icons/icon-512.png", "mime_type": "image/png", "sizes": ["512x512"]}
+  ],
+  "external_media": [],
+  "public_documents": [],
+  "forms": []
+}

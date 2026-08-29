@@ -1,0 +1,13 @@
+{
+  "name": "restaurant-website-v5-2-infrastructure",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "release:check": "python3 scripts/release_check.py",
+    "test:functions": "node --test tests/contact-function.test.mjs",
+    "check:functions": "node --check functions/api/_middleware.js && node --check functions/api/contact.js && node --check functions/api/health.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

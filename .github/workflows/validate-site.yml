@@ -1,0 +1,88 @@
+name: Validate website source
+
+on:
+  pull_request:
+    paths:
+      - 'public/**'
+      - 'functions/**'
+      - 'scripts/**'
+      - 'tests/**'
+      - 'infrastructure/**'
+      - 'handoff/**'
+      - 'AGENTS.md'
+      - 'package.json'
+      - '.github/workflows/**'
+  push:
+    branches: [main]
+    paths:
+      - 'public/**'
+      - 'functions/**'
+      - 'scripts/**'
+      - 'tests/**'
+      - 'infrastructure/**'
+      - 'handoff/**'
+      - 'AGENTS.md'
+      - 'package.json'
+      - '.github/workflows/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: website-validation-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.13'
+
+      - name: Run unit tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Test contact-function behavior
+        run: node --test tests/contact-function.test.mjs
+
+      - name: Enforce production gates or the exact reviewed starter shell
+        shell: bash
+        run: |
+          set +e
+          stage="$(python -c "import json; print(json.load(open('public/site-manifest.json'))['stage'])")"
+          if [ "$stage" = "starter" ]; then
+            python scripts/validate_site.py public \
+              --mode starter \
+              --repo-root . \
+              --report-json .website-validation.json \
+              --report-md .website-validation.md
+            status=$?
+            if [ "$status" -eq 0 ]; then
+              python scripts/verify_starter_tree.py public --repo-root .
+              status=$?
+            fi
+          else
+            python scripts/validate_site.py public \
+              --mode production \
+              --repo-root . \
+              --report-json .website-validation.json \
+              --report-md .website-validation.md
+            status=$?
+          fi
+          cat .website-validation.md >> "$GITHUB_STEP_SUMMARY"
+          exit "$status"
+
+      - name: Check Pages Functions syntax
+        shell: bash
+        run: |
+          node --check functions/api/_middleware.js
+          node --check functions/api/contact.js
+          node --check functions/api/health.js

@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /
+Sitemap: https://restaurant-starter-shell.pages.dev/sitemap.xml

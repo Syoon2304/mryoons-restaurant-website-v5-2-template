@@ -1,0 +1,44 @@
+name: Weekly live website health check
+
+on:
+  schedule:
+    - cron: '20 13 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  live-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.13'
+
+      - name: Check configured live website
+        env:
+          SITE_URL: ${{ vars.SITE_URL }}
+          LIVE_CHECK_APPROVED_MEDIA_HOSTS: ${{ vars.LIVE_CHECK_APPROVED_MEDIA_HOSTS }}
+        shell: bash
+        run: |
+          if [ -z "$SITE_URL" ]; then
+            echo "# Live health check skipped" >> "$GITHUB_STEP_SUMMARY"
+            echo "Set the repository variable SITE_URL to the production HTTPS origin." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          set +e
+          python scripts/check_live_site.py \
+            --base-url "$SITE_URL" \
+            --manifest public/site-manifest.json \
+            --report-json .live-health.json \
+            --report-md .live-health.md
+          status=$?
+          cat .live-health.md >> "$GITHUB_STEP_SUMMARY"
+          exit "$status"

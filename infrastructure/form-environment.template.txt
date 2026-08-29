@@ -1,0 +1,23 @@
+Cloudflare Pages environment variables and secrets
+
+Required when forms are enabled:
+SITE_NAME=Public Restaurant Name
+FORM_DELIVERY_PROVIDER=cloudflare-email-api
+FORM_TO_EMAIL=owner-controlled destination address
+FORM_FROM_EMAIL=website@restaurant-domain.com
+CLOUDFLARE_ACCOUNT_ID=Cloudflare account ID
+ALLOWED_ORIGINS=https://restaurant-domain.com,https://www.restaurant-domain.com
+REQUIRE_TURNSTILE=true
+TURNSTILE_EXPECTED_HOSTNAME=restaurant-domain.com
+TURNSTILE_EXPECTED_ACTION=contact_submit
+
+Secrets:
+CLOUDFLARE_EMAIL_API_TOKEN=token with only email sending permission
+TURNSTILE_SECRET_KEY=Turnstile secret key
+
+Optional webhook mode instead of Cloudflare Email Service:
+FORM_DELIVERY_PROVIDER=webhook
+FORM_WEBHOOK_URL=https://secure-webhook-endpoint
+FORM_WEBHOOK_SECRET=shared secret sent in X-Website-Form-Secret
+
+Public Turnstile site key belongs in the website HTML, not in a secret. The widget data-action must exactly match TURNSTILE_EXPECTED_ACTION. Add each real production hostname separately when Cloudflare's widget configuration requires it; never use a wildcard hostname.
