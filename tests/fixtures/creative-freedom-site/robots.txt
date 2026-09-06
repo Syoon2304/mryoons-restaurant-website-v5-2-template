@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://creative-restaurant-fixture.pages.dev/sitemap.xml

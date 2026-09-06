@@ -1,12 +1,20 @@
-# Restaurant Website V5.2 publishing starter
+# MrYoons Restaurant Website Publishing System
 
-This repository is the public publishing half of the V5.2 restaurant website program. One protected contract supports both student launch routes:
+This repository is the nonvisual publishing and safety foundation for the V5.3 restaurant website program. It intentionally retains the proven V5.2 repository/package contract so V5.2-compatible importers, manifests, and deployments keep working. One protected contract supports both student launch routes:
 
 - **Phone:** upload one complete, approved `website.zip` at the repository root. The phone workflow inspects it as untrusted input, validates it, stages it, and only then replaces `public/`.
 - **Desktop Codex:** open the repository in Codex and edit the real website files under `public/`. Codex runs the same production policy before review.
-- **Hosting:** Cloudflare Pages deploys `public/` plus the optional Pages Functions under `functions/`. It never deploys `website.zip`, `handoff/`, or the private business-assets source.
+- **Final hosting:** GitHub `main` is the source of truth and Cloudflare Pages deploys `public/` plus the optional Pages Functions under `functions/`. It never deploys `website.zip`, `handoff/`, or the private business-assets source.
 
 A rejected phone package never replaces the current site.
+
+## Blank-canvas design rule
+
+This repository is **not** a visual template. The committed `public/` folder is only a disposable safety/status shell so a new repository can connect and deploy without publishing invented business information. It is never a design reference.
+
+Every real restaurant website must be designed from the owner interview, approved facts, media, and inferred business vibe. The production build may replace every file under `public/`, use any number of truthful pages, and use completely original markup, page structure, CSS, local fonts, SVG graphics, icons, imagery, and JavaScript allowed by the public-output policy. Do not inherit the shell's layout, classes, colors, typography, page list, or components. Protected infrastructure outside `public/` stays in place.
+
+ChatGPT Sites may be used only for a temporary owner preview when available. It is not the course's final host or source of truth. The approved final website must be committed to GitHub `main` and deployed by Cloudflare Pages.
 
 ## The three boundaries
 
@@ -23,21 +31,21 @@ protected repository infrastructure
   .github/ functions/ infrastructure/ scripts/ tests/ templates/ AGENTS.md
 ```
 
-The restaurant’s private business-assets folder belongs in the V5.2 program folder, outside this GitHub repository. Only approved public-ready assets belong in `public/`.
+The restaurant’s private business-assets folder belongs in the V5.3 program folder, outside this GitHub repository. Only approved public-ready assets belong in `public/`.
 
 ## Repository map
 
 ```text
 .github/workflows/
   publish-phone-upload.yml       validate and import root website.zip
-  validate-site.yml              production gates or exact reviewed starter shell
+  validate-site.yml              production gates or exact reviewed safety shell
   rollback-website.yml           restore public/ from a known-good commit
   weekly-live-health-check.yml   bounded live website checks
 
 public/                           public website files only
 functions/api/                    optional Cloudflare Pages form endpoints
 handoff/                          minimal approved public build context
-infrastructure/                   protected V5.2 contracts and setup templates
+infrastructure/                   protected V5.2-compatible contracts and setup files
 scripts/                          validator, packager, importer, and live checker
 tests/                            production and malicious-input regression tests
 templates/                        implementation snippets for Codex
@@ -60,7 +68,7 @@ The uploaded package must:
 - remain inside all compressed, expanded, file-count, file-type, and individual-file limits;
 - pass the full production validator and an exact extraction check.
 
-The included root `website.zip` is a deliberately invalid, exact course placeholder. The phone workflow recognizes only that reviewed placeholder as a clean waiting state. A student replaces it with the approved package produced by the course workflow; every changed package receives the complete import and production checks. Uploading an invalid package leaves the existing `public/` unchanged.
+The included root `website.zip` is a deliberately invalid, exact course placeholder. The phone workflow recognizes only that reviewed placeholder as a clean waiting state. A student replaces it with the approved package produced by the course workflow; every changed package receives the complete import and production checks. A successful import replaces the whole disposable shell rather than styling or extending it. Uploading an invalid package leaves the existing `public/` unchanged.
 
 ### Existing-site URL safety
 
@@ -68,11 +76,11 @@ The included root `website.zip` is a deliberately invalid, exact course placehol
 
 ## Desktop Codex contract
 
-Codex reads `AGENTS.md` and the approved files under `handoff/`, then edits `public/` directly on a branch. It must not copy the private business-assets source into GitHub. Before review, it updates the manifest and version together, runs the repository release check, inspects phone and desktop layouts, and reports owner-visible results.
+Codex reads `AGENTS.md` and the approved files under `handoff/`, then creates a blank-canvas production website under `public/` on a branch. It must remove all starter-only pages/assets, must not use the safety shell as a visual reference, and must not copy the private business-assets source into GitHub. Before review, it updates the manifest and version together, runs the repository release check, inspects phone and desktop layouts, and reports owner-visible results.
 
 ## Creator setup
 
-1. Create a new private repository from this starter and keep the default branch named `main`.
+1. Create a new private repository from this Website Publishing System and keep the default branch named `main`.
 2. Enable GitHub Actions with read/write workflow permission. The phone importer needs `contents: write` to create the validated `public/` commit.
 3. Keep `main` unprotected for the baseline phone course. GitHub mobile uploads cannot replace `website.zip` on a protected branch, and this workflow commits the validated extraction to `main`. A protected-branch edition needs a separately tested pull-request importer.
 4. Connect Cloudflare Pages with repository root as the root directory, `exit 0` as the build command, and `public` as the build output directory.
@@ -118,4 +126,4 @@ Never force-push or erase history for a normal rollback.
 
 ## First safe state
 
-The committed `public/` is a neutral, non-business starter shell. CI accepts starter mode only when every byte matches `infrastructure/starter-tree.sha256`. Any real website must use `stage: production` and pass all production gates.
+The committed `public/` is a neutral, non-business safety shell. CI accepts starter mode only when every byte matches `infrastructure/starter-tree.sha256`. It exists only until a custom build is ready. Any real website must fully replace that shell, use `stage: production`, pass all production gates, reach GitHub `main`, and deploy through Cloudflare Pages.

@@ -1,0 +1,33 @@
+{
+  "schema_version": "2.1",
+  "site_name": "Neon Current Test Supper Club",
+  "business_type": "restaurant",
+  "public_domain": "https://creative-restaurant-fixture.pages.dev",
+  "package_version": "2026.08.30-creative.1",
+  "build_date": "2026-08-30T12:00:00Z",
+  "stage": "production",
+  "workflow_version": "5.2",
+  "system_version": "restaurant-system-pack-5.3",
+  "business_assets_version": "restaurant-business-assets-5.3",
+  "repository_package_spec": "5.2",
+  "design_lock_reference": "creative-fixture-master-direction",
+  "final_approval_reference": "creative-fixture-release-approval",
+  "primary_action": {"label": "Enter the after-dark experience", "url": "/experience"},
+  "pages": [
+    {"file_path": "index.html", "url_path": "/", "canonical_url_path": "/", "title": "Neon Current Test Supper Club | Creative Fixture", "purpose": "Prove a visually unrelated restaurant homepage can use the protected publishing system.", "indexable": true},
+    {"file_path": "experiences/after-dark.html", "url_path": "/experience", "canonical_url_path": "/experience", "title": "After-Dark Dining | Neon Current Test Supper Club", "purpose": "Prove nested page files and custom public routes can replace the safety shell.", "indexable": true},
+    {"file_path": "404.html", "url_path": "/404.html", "canonical_url_path": "/404.html", "title": "Signal Lost | Neon Current Test Supper Club", "purpose": "Custom page-not-found experience for the creative fixture.", "indexable": false}
+  ],
+  "legacy_routes": [],
+  "icons": [
+    {"rel": "icon", "file_path": "assets/icons/favicon.ico", "mime_type": "image/x-icon", "sizes": ["16x16", "32x32", "48x48"]},
+    {"rel": "icon", "file_path": "assets/icons/favicon.svg", "mime_type": "image/svg+xml", "sizes": ["any"]},
+    {"rel": "apple-touch-icon", "file_path": "assets/icons/apple-touch-icon.png", "mime_type": "image/png", "sizes": ["180x180"]},
+    {"rel": "manifest", "file_path": "site.webmanifest", "mime_type": "application/manifest+json", "sizes": []},
+    {"rel": "app-icon", "file_path": "assets/icons/icon-192.png", "mime_type": "image/png", "sizes": ["192x192"]},
+    {"rel": "app-icon", "file_path": "assets/icons/icon-512.png", "mime_type": "image/png", "sizes": ["512x512"]}
+  ],
+  "external_media": [],
+  "public_documents": [],
+  "forms": []
+}

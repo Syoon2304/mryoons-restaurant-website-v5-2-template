@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <font id="NeonCurrent" horiz-adv-x="1000">
+      <font-face font-family="Neon Current" units-per-em="1000" ascent="820" descent="-180"/>
+      <glyph unicode="A" horiz-adv-x="760" d="M20 0 300 700h160L740 0H570l-58 160H248L190 0H20Zm278 300h164L380 525 298 300Z"/>
+      <glyph unicode="N" horiz-adv-x="820" d="M60 0v700h150L610 270v430h150V0H610L210 430V0H60Z"/>
+      <glyph unicode="O" horiz-adv-x="820" d="M410-20C170-20 45 120 45 350S170 720 410 720s365-140 365-370S650-20 410-20Zm0 145c137 0 205 76 205 225s-68 225-205 225-205-76-205-225 68-225 205-225Z"/>
+    </font>
+  </defs>
+</svg>

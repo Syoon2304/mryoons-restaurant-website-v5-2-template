@@ -1,0 +1,51 @@
+@font-face {
+  font-family: "Neon Current";
+  src: url("../fonts/neon-current.svg#NeonCurrent") format("svg");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+:root { color-scheme: dark; --ink:#050812; --foam:#ecfff9; --aqua:#13f2d0; --violet:#8d5cff; --coral:#ff5b78; --line:rgba(19,242,208,.3); }
+* { box-sizing:border-box; }
+html { background:var(--ink); scroll-behavior:smooth; }
+body { margin:0; min-height:100vh; overflow-x:hidden; color:var(--foam); background:radial-gradient(circle at 72% 12%,rgba(141,92,255,.32),transparent 33rem),linear-gradient(145deg,#050812 0%,#071a25 48%,#0c1024 100%); font:1rem/1.6 Inter,system-ui,sans-serif; }
+a { color:inherit; }
+.skip { position:fixed; left:1rem; top:-5rem; z-index:20; padding:.75rem 1rem; background:var(--foam); color:var(--ink); }
+.skip:focus { top:1rem; }
+.current-lines { position:fixed; inset:0; pointer-events:none; opacity:.22; background:repeating-radial-gradient(ellipse at 70% 18%,transparent 0 3rem,var(--line) 3.05rem 3.15rem); animation:tide 14s ease-in-out infinite alternate; }
+.mast { position:relative; z-index:2; display:flex; justify-content:space-between; align-items:center; max-width:92rem; margin:auto; padding:1.2rem clamp(1rem,4vw,4rem); }
+.mast nav { display:flex; align-items:center; gap:1.5rem; }
+.mast a { text-decoration:none; }
+.sigil img { width:4.5rem; filter:drop-shadow(0 0 1rem rgba(19,242,208,.45)); }
+.pulse-link,.orbit-button { display:inline-flex; padding:.8rem 1.2rem; border:1px solid var(--aqua); border-radius:999px; box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),0 0 2rem rgba(19,242,208,.18); text-decoration:none; }
+.portal { position:relative; display:grid; align-content:center; min-height:78vh; max-width:92rem; margin:auto; padding:clamp(4rem,9vw,9rem) clamp(1rem,8vw,8rem); isolation:isolate; }
+.portal.compact { min-height:58vh; }
+.frequency { color:var(--aqua); letter-spacing:.18em; text-transform:uppercase; font-size:.76rem; }
+h1,h2,h3 { font-family:"Neon Current","Arial Black",sans-serif; line-height:.96; text-wrap:balance; }
+h1 { max-width:11ch; margin:.15em 0; font-size:clamp(3.5rem,10vw,9rem); letter-spacing:-.05em; background:linear-gradient(90deg,var(--foam),var(--aqua) 50%,#d4c7ff); color:transparent; background-clip:text; }
+.lede { max-width:42rem; font-size:clamp(1.1rem,2vw,1.45rem); }
+.orbit-button { width:max-content; margin-top:1rem; font-weight:800; background:linear-gradient(100deg,var(--aqua),#80ffe7); color:var(--ink); }
+.orbital-mark { position:absolute; right:5%; top:14%; width:min(34rem,45vw); aspect-ratio:1; border:1px solid var(--line); border-radius:50%; z-index:-1; animation:orbit 18s linear infinite; }
+.orbital-mark span { position:absolute; inset:12%; border:1px solid rgba(141,92,255,.4); border-radius:46% 54% 60% 40%; }
+.orbital-mark span:nth-child(2) { inset:28%; border-color:rgba(255,91,120,.55); transform:rotate(54deg); }
+.orbital-mark span:nth-child(3) { inset:43%; background:var(--aqua); box-shadow:0 0 4rem var(--aqua); }
+.constellation { display:grid; grid-template-columns:repeat(12,1fr); gap:1rem; max-width:92rem; margin:auto; padding:clamp(4rem,8vw,8rem) clamp(1rem,4vw,4rem); }
+.constellation h2 { grid-column:1/-1; max-width:13ch; font-size:clamp(2.5rem,6vw,5rem); }
+.constellation article { grid-column:span 4; min-height:20rem; padding:2rem; border:1px solid var(--line); border-radius:2rem 0 2rem 0; background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(19,242,208,.02)); backdrop-filter:blur(16px); }
+.constellation strong { color:var(--coral); font-size:2rem; }
+.constellation h3 { font-size:1.8rem; }
+.wave-table { max-width:70rem; margin:auto; padding:4rem clamp(1rem,7vw,6rem) 8rem; }
+.wave-table h2 { font-size:clamp(2.5rem,7vw,5rem); }
+.wave-table ol { padding:0; list-style:none; border-top:1px solid var(--line); }
+.wave-table li { display:flex; gap:2rem; padding:1.3rem 0; border-bottom:1px solid var(--line); font-size:1.25rem; }
+.wave-table span { color:var(--aqua); font-variant-numeric:tabular-nums; }
+footer { display:flex; justify-content:space-between; gap:1rem; padding:2rem clamp(1rem,4vw,4rem); border-top:1px solid var(--line); }
+.lost { display:grid; place-content:center; min-height:100vh; padding:2rem; text-align:center; }
+.lost h1 { max-width:12ch; margin-inline:auto; }
+[data-reveal] { opacity:.3; transform:translateY(2rem); transition:opacity .8s ease,transform .8s ease; }
+[data-reveal].is-visible { opacity:1; transform:none; }
+@keyframes orbit { to { transform:rotate(360deg); } }
+@keyframes tide { to { transform:scale(1.08) translate3d(-2%,2%,0); } }
+@media (max-width:760px) { .mast nav>a:first-child { display:none; } .constellation article { grid-column:1/-1; min-height:auto; } .orbital-mark { width:80vw; opacity:.7; } footer { flex-direction:column; } }
+@media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation:none!important; transition:none!important; } [data-reveal] { opacity:1; transform:none; } }

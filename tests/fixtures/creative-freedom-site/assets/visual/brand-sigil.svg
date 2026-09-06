@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="Abstract neon tide sigil">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#13f2d0"/><stop offset=".55" stop-color="#8d5cff"/><stop offset="1" stop-color="#ff5b78"/></linearGradient></defs>
+  <circle cx="80" cy="80" r="68" fill="#050812" stroke="url(#g)" stroke-width="5"/>
+  <path d="M28 90c22-32 43-22 55-9 13 14 29 13 49-13-8 43-35 67-67 61-21-4-34-18-37-39Z" fill="none" stroke="url(#g)" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="108" cy="48" r="9" fill="#13f2d0"/>
+</svg>
